@@ -245,22 +245,6 @@ local function CleanupPlayerStates()
     end
 end
 
---[[
-
-Hooks for modifying the healing system / adding custom logic from other addons
-
-Example:
-
-hook.Add("HealthRestore_ModifyMaxRestore", "Custom_MaxRestore", function(maxHealth, maxRestore)
-    -- Allow VIPs to heal to full health
-    if ply:GetUserGroup() == "vip" then
-        return maxHealth
-    end
-    return maxRestore
-end)
-
---]]
-
 local function CreateHooks()
     hook.Add("HealthRestore_CanHeal", "HealthRestore_DefaultCanHeal", function(ply)
         return true
